@@ -1,0 +1,13 @@
+﻿@model string
+
+<h1>Get Code</h1>
+
+@using (Html.BeginForm("GetCodePost", "Auth"))
+{
+    <button type="submit" class="btn btn-primary">Get Code</button>
+}
+<br></br>
+@using (Html.BeginForm("GetAccessTokenPost", "Auth"))
+{
+    <button type="submit" class="btn btn-primary">Get Token</button>
+}
