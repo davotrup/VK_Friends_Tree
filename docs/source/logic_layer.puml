@@ -1,0 +1,19 @@
+@startuml
+scale 600 width
+
+state GraphModel {
+    state Analyze {
+        betweenness_centrality -[hidden]-> closeness_centrality
+        closeness_centrality -[hidden]-> eigenvector_centrality
+    }
+
+    [*] --> InsertData 
+    InsertData --> Analyze : [in] created Adj. Matrix
+    Analyze --> [*] : [out] GraphCentralityRates
+}
+
+[*] -> GraphModel : [in] Graph 
+GraphModel --> View : get needed data from model and print
+View --> [*]
+
+@enduml
