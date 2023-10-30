@@ -1,0 +1,35 @@
+{
+  "response": {
+    "count": 4,
+    "items": [
+      {
+        "id": "140216171",
+        "nickname": "",
+        "first_name": "Даниил",
+        "last_name": "Пуртов",
+        "sex": "2"
+      },
+      {
+        "id": "223610329",
+        "nickname": "",
+        "first_name": "Анастасия",
+        "last_name": "Кузьминская",
+        "sex": "1"
+      },
+      {
+        "id": "262576924",
+        "nickname": "",
+        "first_name": "Ангелина",
+        "last_name": "Журавлёва",
+        "sex": "1"
+      },
+      {
+        "id": "325692404",
+        "nickname": null,
+        "first_name": "Виктория",
+        "last_name": "Каплина",
+        "sex": "1"
+      }
+    ]
+  }
+}

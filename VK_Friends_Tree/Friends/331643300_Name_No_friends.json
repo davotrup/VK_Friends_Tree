@@ -1,0 +1,98 @@
+{
+  "response": {
+    "count": 13,
+    "items": [
+      {
+        "id": "140216171",
+        "nickname": "",
+        "first_name": "Даниил",
+        "last_name": "Пуртов",
+        "sex": "2"
+      },
+      {
+        "id": "185632067",
+        "nickname": "",
+        "first_name": "Евгений",
+        "last_name": "Богуслов",
+        "sex": "2"
+      },
+      {
+        "id": "216760663",
+        "nickname": "",
+        "first_name": "Iнночка",
+        "last_name": "Мкртчян",
+        "sex": "1"
+      },
+      {
+        "id": "224927409",
+        "nickname": "",
+        "first_name": "Маша",
+        "last_name": "Громова",
+        "sex": "1"
+      },
+      {
+        "id": "246020096",
+        "nickname": null,
+        "first_name": "DELETED",
+        "last_name": "",
+        "sex": "2"
+      },
+      {
+        "id": "247436576",
+        "nickname": "",
+        "first_name": "Саня",
+        "last_name": "Когалым",
+        "sex": "2"
+      },
+      {
+        "id": "266761970",
+        "nickname": "",
+        "first_name": "Мерве",
+        "last_name": "Болугур",
+        "sex": "1"
+      },
+      {
+        "id": "289311369",
+        "nickname": null,
+        "first_name": "Мухтар",
+        "last_name": "Ахмедов",
+        "sex": "2"
+      },
+      {
+        "id": "310040475",
+        "nickname": "",
+        "first_name": "Eddy",
+        "last_name": "Qmas",
+        "sex": "2"
+      },
+      {
+        "id": "312013373",
+        "nickname": "",
+        "first_name": "Abdusamat",
+        "last_name": "Karapkaliyev",
+        "sex": "2"
+      },
+      {
+        "id": "331416482",
+        "nickname": null,
+        "first_name": "Мила",
+        "last_name": "Волк",
+        "sex": "1"
+      },
+      {
+        "id": "335565441",
+        "nickname": "",
+        "first_name": "Kira",
+        "last_name": "Harris",
+        "sex": "1"
+      },
+      {
+        "id": "335692675",
+        "nickname": "",
+        "first_name": "Илья",
+        "last_name": "Хлебухов",
+        "sex": "2"
+      }
+    ]
+  }
+}

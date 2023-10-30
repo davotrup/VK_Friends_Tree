@@ -1,0 +1,49 @@
+{
+  "response": {
+    "count": 6,
+    "items": [
+      {
+        "id": "97369212",
+        "nickname": "",
+        "first_name": "Den",
+        "last_name": "Evseev",
+        "sex": "2"
+      },
+      {
+        "id": "132071983",
+        "nickname": "",
+        "first_name": "Настя",
+        "last_name": "Кониченко",
+        "sex": "1"
+      },
+      {
+        "id": "140216171",
+        "nickname": "",
+        "first_name": "Даниил",
+        "last_name": "Пуртов",
+        "sex": "2"
+      },
+      {
+        "id": "233547110",
+        "nickname": "",
+        "first_name": "Екатерина",
+        "last_name": "Минченко",
+        "sex": "1"
+      },
+      {
+        "id": "268978421",
+        "nickname": "",
+        "first_name": "Юлия",
+        "last_name": "Башкирева",
+        "sex": "1"
+      },
+      {
+        "id": "280375411",
+        "nickname": "",
+        "first_name": "Дмитрий",
+        "last_name": "Закурдаев",
+        "sex": "2"
+      }
+    ]
+  }
+}

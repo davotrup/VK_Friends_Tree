@@ -11,7 +11,7 @@ namespace VK_Friends_Tree.Controllers
         public static string clientSecret = "4eaoUlvEf2a1oy9T3j26";
         public static string redirectUri = "https://localhost:5001/auth/callback";
         public static string scope = "friends";
-
+        public static string token { get; set; }
         // Код авторизации, который вы получите после успешной авторизации пользователя
         public static string authorizationCode { get; set; }
 
@@ -21,8 +21,13 @@ namespace VK_Friends_Tree.Controllers
         public static string tokenExchangeUrl = $"https://oauth.vk.com/access_token?client_id={clientId}&client_secret={clientSecret}&redirect_uri={redirectUri}&code={authorizationCode}";
         
 
-        public IActionResult Index()
+        public IActionResult Index(string accessToken)
         {
+            if (!(accessToken is null))
+            {
+                return View("Index",accessToken);
+            }
+
             return View();
         }
         [HttpPost]
@@ -89,10 +94,10 @@ namespace VK_Friends_Tree.Controllers
                     }
 
                     // Теперь у вас есть access_token, который вы можете использовать
-                    string accessToken = result.access_token;
-
+                    string _accessToken = result.access_token;
+                    token = _accessToken;
                     // Вернуть страницу или выполнить дальнейшие действия
-                    return View("Success", accessToken);
+                    return View("Success", _accessToken);
                 }
                 catch (Exception ex)
                 {

@@ -1,0 +1,56 @@
+{
+  "response": {
+    "count": 7,
+    "items": [
+      {
+        "id": "22486691",
+        "nickname": "",
+        "first_name": "Мария",
+        "last_name": "Савёнкова",
+        "sex": "1"
+      },
+      {
+        "id": "58631298",
+        "nickname": "",
+        "first_name": "Елена",
+        "last_name": "Шершнева",
+        "sex": "1"
+      },
+      {
+        "id": "134903821",
+        "nickname": "",
+        "first_name": "Лариса",
+        "last_name": "Давыдова",
+        "sex": "1"
+      },
+      {
+        "id": "140216171",
+        "nickname": "",
+        "first_name": "Даниил",
+        "last_name": "Пуртов",
+        "sex": "2"
+      },
+      {
+        "id": "154888125",
+        "nickname": "Викторовна",
+        "first_name": "Анна",
+        "last_name": "Звонарева",
+        "sex": "1"
+      },
+      {
+        "id": "341268565",
+        "nickname": "",
+        "first_name": "Алиса",
+        "last_name": "Кот",
+        "sex": "1"
+      },
+      {
+        "id": "343695397",
+        "nickname": "",
+        "first_name": "Анна",
+        "last_name": "Романова",
+        "sex": "1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "response": {
+    "count": 11,
+    "items": [
+      {
+        "id": "140216171",
+        "nickname": "",
+        "first_name": "Даниил",
+        "last_name": "Пуртов",
+        "sex": "2"
+      },
+      {
+        "id": "164830057",
+        "nickname": "",
+        "first_name": "Максим",
+        "last_name": "Стёгов",
+        "sex": "2"
+      },
+      {
+        "id": "165942540",
+        "nickname": "",
+        "first_name": "Клим",
+        "last_name": "Матяев",
+        "sex": "2"
+      },
+      {
+        "id": "168308210",
+        "nickname": "",
+        "first_name": "Артём",
+        "last_name": "Гонюков",
+        "sex": "2"
+      },
+      {
+        "id": "194724652",
+        "nickname": "",
+        "first_name": "Саша",
+        "last_name": "Лыков",
+        "sex": "2"
+      },
+      {
+        "id": "226257061",
+        "nickname": "",
+        "first_name": "Аля",
+        "last_name": "Сергеева",
+        "sex": "1"
+      },
+      {
+        "id": "257400965",
+        "nickname": null,
+        "first_name": "Демченко",
+        "last_name": "Анелина",
+        "sex": "1"
+      },
+      {
+        "id": "320908960",
+        "nickname": "",
+        "first_name": "Женёк",
+        "last_name": "Гришаев",
+        "sex": "2"
+      },
+      {
+        "id": "338817199",
+        "nickname": null,
+        "first_name": "Влад",
+        "last_name": "Кравченко",
+        "sex": "2"
+      },
+      {
+        "id": "393189031",
+        "nickname": "",
+        "first_name": "Артем",
+        "last_name": "Маленкин",
+        "sex": "2"
+      },
+      {
+        "id": "437850530",
+        "nickname": "",
+        "first_name": "Тимур",
+        "last_name": "Люцифер",
+        "sex": "2"
+      }
+    ]
+  }
+}

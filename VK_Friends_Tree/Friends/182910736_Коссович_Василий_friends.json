@@ -1,0 +1,336 @@
+{
+  "response": {
+    "count": 47,
+    "items": [
+      {
+        "id": "12642052",
+        "nickname": "",
+        "first_name": "Ольга",
+        "last_name": "Ефременко",
+        "sex": "1"
+      },
+      {
+        "id": "121562034",
+        "nickname": "",
+        "first_name": "Артем",
+        "last_name": "Макин",
+        "sex": "2"
+      },
+      {
+        "id": "134277130",
+        "nickname": "Батя",
+        "first_name": "Саша",
+        "last_name": "Тимофеев",
+        "sex": "2"
+      },
+      {
+        "id": "136108802",
+        "nickname": "",
+        "first_name": "Гоша",
+        "last_name": "Токарев",
+        "sex": "2"
+      },
+      {
+        "id": "138269770",
+        "nickname": "",
+        "first_name": "Александр",
+        "last_name": "Ломакин",
+        "sex": "2"
+      },
+      {
+        "id": "140054837",
+        "nickname": "",
+        "first_name": "Николай",
+        "last_name": "Смолкин",
+        "sex": "2"
+      },
+      {
+        "id": "140216171",
+        "nickname": "",
+        "first_name": "Даниил",
+        "last_name": "Пуртов",
+        "sex": "2"
+      },
+      {
+        "id": "150979671",
+        "nickname": "",
+        "first_name": "Ирина",
+        "last_name": "Борисенко",
+        "sex": "1"
+      },
+      {
+        "id": "153654878",
+        "nickname": "",
+        "first_name": "Паша",
+        "last_name": "Конев",
+        "sex": "2"
+      },
+      {
+        "id": "160917573",
+        "nickname": "",
+        "first_name": "Danya",
+        "last_name": "Fujiwara",
+        "sex": "2"
+      },
+      {
+        "id": "162505261",
+        "nickname": "",
+        "first_name": "Дмитрий",
+        "last_name": "Курияши",
+        "sex": "2"
+      },
+      {
+        "id": "176839961",
+        "nickname": "",
+        "first_name": "Александр",
+        "last_name": "Сокольников",
+        "sex": "2"
+      },
+      {
+        "id": "181422727",
+        "nickname": "",
+        "first_name": "Илья",
+        "last_name": "Лысаченко",
+        "sex": "2"
+      },
+      {
+        "id": "186275823",
+        "nickname": "",
+        "first_name": "Настя",
+        "last_name": "Зверева",
+        "sex": "1"
+      },
+      {
+        "id": "186393774",
+        "nickname": "",
+        "first_name": "Олег",
+        "last_name": "Зря",
+        "sex": "2"
+      },
+      {
+        "id": "191241617",
+        "nickname": "",
+        "first_name": "Сергей",
+        "last_name": "Сотников",
+        "sex": "1"
+      },
+      {
+        "id": "191368022",
+        "nickname": "",
+        "first_name": "Кирилл",
+        "last_name": "Терещенко",
+        "sex": "2"
+      },
+      {
+        "id": "201725948",
+        "nickname": "",
+        "first_name": "Серёга",
+        "last_name": "Местных",
+        "sex": "2"
+      },
+      {
+        "id": "203331709",
+        "nickname": "",
+        "first_name": "Просто",
+        "last_name": "Человек",
+        "sex": "1"
+      },
+      {
+        "id": "203742683",
+        "nickname": "",
+        "first_name": "Андрей",
+        "last_name": "Петров",
+        "sex": "2"
+      },
+      {
+        "id": "210618056",
+        "nickname": "",
+        "first_name": "Манюнька",
+        "last_name": "Танюшка",
+        "sex": "1"
+      },
+      {
+        "id": "219027168",
+        "nickname": "",
+        "first_name": "Владимир",
+        "last_name": "Ребров",
+        "sex": "2"
+      },
+      {
+        "id": "228800085",
+        "nickname": "",
+        "first_name": "Данил",
+        "last_name": "Горбачев",
+        "sex": "2"
+      },
+      {
+        "id": "244499186",
+        "nickname": "",
+        "first_name": "Ольга",
+        "last_name": "Чепурнова",
+        "sex": "1"
+      },
+      {
+        "id": "248301301",
+        "nickname": "",
+        "first_name": "Карина",
+        "last_name": "Лукинова",
+        "sex": "1"
+      },
+      {
+        "id": "262301817",
+        "nickname": "",
+        "first_name": "Алексей",
+        "last_name": "Дмитров",
+        "sex": "2"
+      },
+      {
+        "id": "281841643",
+        "nickname": "",
+        "first_name": "Георгий",
+        "last_name": "Ломоносов",
+        "sex": "2"
+      },
+      {
+        "id": "285214517",
+        "nickname": "",
+        "first_name": "Вера",
+        "last_name": "Дмитрова",
+        "sex": "1"
+      },
+      {
+        "id": "286659985",
+        "nickname": "",
+        "first_name": "Паша",
+        "last_name": "Верховный",
+        "sex": "2"
+      },
+      {
+        "id": "289525137",
+        "nickname": "",
+        "first_name": "Роман",
+        "last_name": "Ченцов",
+        "sex": "2"
+      },
+      {
+        "id": "291659648",
+        "nickname": "",
+        "first_name": "Никита",
+        "last_name": "Костромин",
+        "sex": "2"
+      },
+      {
+        "id": "307339505",
+        "nickname": "",
+        "first_name": "Dragon",
+        "last_name": "Trap",
+        "sex": "2"
+      },
+      {
+        "id": "311430388",
+        "nickname": "",
+        "first_name": "Марсель",
+        "last_name": "Есин",
+        "sex": "2"
+      },
+      {
+        "id": "312578870",
+        "nickname": "",
+        "first_name": "Никита",
+        "last_name": "Дрюков",
+        "sex": "2"
+      },
+      {
+        "id": "343272752",
+        "nickname": "",
+        "first_name": "Николай",
+        "last_name": "Смолкин",
+        "sex": "2"
+      },
+      {
+        "id": "352624526",
+        "nickname": "",
+        "first_name": "Яна",
+        "last_name": "Рождественская",
+        "sex": "1"
+      },
+      {
+        "id": "360310235",
+        "nickname": "",
+        "first_name": "Илья",
+        "last_name": "Ильин",
+        "sex": "2"
+      },
+      {
+        "id": "361411723",
+        "nickname": "",
+        "first_name": "Катя",
+        "last_name": "Топская",
+        "sex": "1"
+      },
+      {
+        "id": "392334897",
+        "nickname": "",
+        "first_name": "Настя",
+        "last_name": "Миргалеева",
+        "sex": "1"
+      },
+      {
+        "id": "392433539",
+        "nickname": "",
+        "first_name": "Юрий",
+        "last_name": "Тарасов",
+        "sex": "1"
+      },
+      {
+        "id": "397152267",
+        "nickname": "",
+        "first_name": "Дэн",
+        "last_name": "Пилигрим",
+        "sex": "2"
+      },
+      {
+        "id": "407912612",
+        "nickname": "",
+        "first_name": "Юлия",
+        "last_name": "Титова",
+        "sex": "1"
+      },
+      {
+        "id": "410480616",
+        "nickname": "",
+        "first_name": "Наталья",
+        "last_name": "Наумова",
+        "sex": "1"
+      },
+      {
+        "id": "482757842",
+        "nickname": "",
+        "first_name": "Илларионов",
+        "last_name": "Даниил",
+        "sex": "2"
+      },
+      {
+        "id": "499900710",
+        "nickname": "",
+        "first_name": "Настя",
+        "last_name": "Миргалеева",
+        "sex": "1"
+      },
+      {
+        "id": "576645633",
+        "nickname": "",
+        "first_name": "Анна",
+        "last_name": "Богомолкина",
+        "sex": "1"
+      },
+      {
+        "id": "602423768",
+        "nickname": "",
+        "first_name": "Людмила",
+        "last_name": "Коссович",
+        "sex": "1"
+      }
+    ]
+  }
+}

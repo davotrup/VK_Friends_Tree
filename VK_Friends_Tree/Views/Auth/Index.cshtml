@@ -11,3 +11,9 @@
 {
     <button type="submit" class="btn btn-primary">Get Token</button>
 }
+<br></br>
+@using (Html.BeginForm("GetFriendsPost", "Graph"))
+{
+    <input type="hidden" name="accessToken" value="@Model" />
+    <button type="submit" class="btn btn-primary">Get my Friends</button>
+}

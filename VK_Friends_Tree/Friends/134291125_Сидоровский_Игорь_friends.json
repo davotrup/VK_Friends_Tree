@@ -1,0 +1,70 @@
+{
+  "response": {
+    "count": 9,
+    "items": [
+      {
+        "id": "16026461",
+        "nickname": "",
+        "first_name": "Владимир",
+        "last_name": "Дегтярев",
+        "sex": "2"
+      },
+      {
+        "id": "67005281",
+        "nickname": "",
+        "first_name": "Алексей",
+        "last_name": "Маслов",
+        "sex": "2"
+      },
+      {
+        "id": "84789725",
+        "nickname": "",
+        "first_name": "Оксана",
+        "last_name": "Сидоровская",
+        "sex": "1"
+      },
+      {
+        "id": "92467467",
+        "nickname": "",
+        "first_name": "Татьяна",
+        "last_name": "Лебедева",
+        "sex": "1"
+      },
+      {
+        "id": "140216171",
+        "nickname": "",
+        "first_name": "Даниил",
+        "last_name": "Пуртов",
+        "sex": "2"
+      },
+      {
+        "id": "221615592",
+        "nickname": "",
+        "first_name": "Эльвира",
+        "last_name": "Дегтярева",
+        "sex": "1"
+      },
+      {
+        "id": "481501815",
+        "nickname": "",
+        "first_name": "Евгений",
+        "last_name": "Горошко",
+        "sex": "2"
+      },
+      {
+        "id": "532469643",
+        "nickname": "",
+        "first_name": "Ирина",
+        "last_name": "Долматова",
+        "sex": "1"
+      },
+      {
+        "id": "566815083",
+        "nickname": "",
+        "first_name": "Сергей",
+        "last_name": "Матвеев",
+        "sex": "2"
+      }
+    ]
+  }
+}

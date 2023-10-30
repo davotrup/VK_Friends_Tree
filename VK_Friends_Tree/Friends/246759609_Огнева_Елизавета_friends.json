@@ -1,0 +1,14 @@
+{
+  "response": {
+    "count": 1,
+    "items": [
+      {
+        "id": "140216171",
+        "nickname": "",
+        "first_name": "Даниил",
+        "last_name": "Пуртов",
+        "sex": "2"
+      }
+    ]
+  }
+}
