@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Numerics;
 using System.Security.Cryptography;
 using System.Text;
 using System.Xml.Linq;
@@ -11,18 +12,7 @@ using static VK_Friends_Tree.Controllers.GraphController;
 
 namespace VK_parser
 {
-    public class FriendsGraph
-    {
-        public int friendsCount { get; set; }
-        public string[,] adjMatrix { get; set; }
-        /*public void GetFriends()
-        {
-            FriendsResponse friends = JsonConvert.DeserializeObject<FriendsResponse>(System.IO.File.ReadAllText("my_friends.json"));
-            List<FriendsResponse> friendsMyFriends = new List<FriendsResponse>();
 
-        }*///VK_Friends_Tree.Controllers.GraphController.FriendsResponse
-        
-    }
     public class FriendsEnum
     {
         [JsonProperty("count")]
@@ -33,7 +23,7 @@ namespace VK_parser
     public class FriendsResponse
     {
         [JsonProperty("response")]
-        public FriendTree friends { get; set; }
+        public FriendsEnum friends { get; set; }
     }
     public class Friend
     {
@@ -44,7 +34,7 @@ namespace VK_parser
         [JsonProperty("last_name")]
         public string LastName { get; set; }
         public List<Friend> Friends { get; set; }
-
+        public Friend parent { get; set; }
         public Friend()
         {
             Friends = new List<Friend>();
@@ -67,30 +57,74 @@ namespace VK_parser
     }
     public class FriendTreeParser
     {
+        private int nodeCount { get; set; }
+        //Словарь - матрица крутой
+        
+        private Dictionary<int,Vector<KeyValuePair<int, int>>> adjMatrix { get; set; }
         public FriendTree ParseFriendTree()
         {
             var friendTree = new FriendTree();
 
             // Загрузка ваших друзей из файла my_friends.json
-            var myFriendsJson = File.ReadAllText("C:\\Users\\danpu\\source\\repos\\VK_Friends_Tree\\VK_Friends_Tree\\my_friends.json");
-            var myFriends = JsonConvert.DeserializeObject<FriendsResponse>(myFriendsJson);
-
+            var myFriendsJson = File.ReadAllText("my_friends.json");
+            var myFriendsResponse = JsonConvert.DeserializeObject<FriendsResponse>(myFriendsJson);
+            var myFriends = myFriendsResponse.friends.items;
+            adjMatrix = new Dictionary<int, Vector<KeyValuePair<int, int>>>();
             friendTree.Root.Friends.AddRange(myFriends);
-
+            adjMatrix.Add(friendTree.Root.Id, (new Vector<KeyValuePair<int, int>>()));
+            adjMatrix[friendTree.Root.Id].Add(friendTree.Root.Id, 0);
             // Загрузка друзей друзей из соответствующих файлов
             foreach (var friend in myFriends)
             {
-                var fileName = $"C:\\Users\\danpu\\source\\repos\\VK_Friends_Tree\\VK_Friends_Tree\\Friends\\{friend.Id}_{friend.LastName}_{friend.FirstName}_friends.json";
+
+                adjMatrix.Add(friend.Id, (new Vector<KeyValuePair<int, int>>()));
+                //adjMatrix[friend.Id].Add(friend.Id, 0);
+                //adjMatrix[friend.Id].Add(friend.parent.Id, 1);
+                friendTree.Root.Friends[friendTree.Root.Friends.IndexOf(friend)].parent = friendTree.Root;
+                if (!adjMatrix.ContainsKey(friend.Id))
+                {
+                    adjMatrix.Add(friend.Id, (new Dictionary<int, int>()));
+                    adjMatrix[friend.Id].Add(friend.Id, 0);
+                }
+                adjMatrix[friend.Id].Add(friend.parent.Id, 1);
+
+                var fileName = $"Friends\\{friend.Id}_{friend.LastName}_{friend.FirstName}_friends.json";
                 if (File.Exists(fileName))
                 {
                     var friendJson = File.ReadAllText(fileName);
-                    var friendFriends = JsonConvert.DeserializeObject<List<Friend>>(friendJson);
+                    var friendFriendsResponse = JsonConvert.DeserializeObject<FriendsResponse>(friendJson);
+                    if (friendFriendsResponse.friends != null)
+                    {       
+                        var friendFriends = friendFriendsResponse.friends.items;
+                        friend.Friends.AddRange(friendFriends);
+                        foreach(var frienMyFriend in friend.Friends)
+                        {
+                            friend.Friends[friend.Friends.IndexOf(frienMyFriend)].parent = friend;
 
-                    friend.Friends.AddRange(friendFriends);
+                            if (!adjMatrix.ContainsKey(frienMyFriend.Id))
+                            {
+                                adjMatrix.Add(frienMyFriend.Id, (new Dictionary<int, int>()));
+                                adjMatrix[frienMyFriend.Id].Add(frienMyFriend.Id, 0);
+                            }
+                            adjMatrix[frienMyFriend.Id].Add(frienMyFriend.parent.Id, 1);
+                        }
+                    }
                 }
             }
 
             return friendTree;
         }
+        public FriendTreeParser()
+        {
+
+        }
+        public void addEdge(Friend node1, Friend node2 )
+        {
+
+        }
+        //public List<int> getFriendsId()
+        //{
+
+        //}
     }
 }
