@@ -62,6 +62,12 @@ namespace VK_parser
         }
     }
 
+    using FRespDeserializer = JsonConvert.DeserializeObject<FriendsResponse>;
+    //                        Vector<{id, matrix_val}>
+    using ListII            = List<KeyValuePair<int, int>>;
+    using ListListII        = List<KeyValuePair<int, ListII>>;
+    using Matrix            = Dictionary<int, Dictionary<int, int>>;
+
     public class FriendTreeParser
     {
         public FriendTreeParser()
@@ -74,54 +80,95 @@ namespace VK_parser
             var friendTree = new FriendTree();
 
             var myFriendsJson = File.ReadAllText("my_friends.json");
-            var myFriendsResponse = 
-                JsonConvert.DeserializeObject<FriendsResponse>(myFriendsJson);
+            var myFriendsResponse = FRespDeserializer(myFriendsJson);
             var myFriends = myFriendsResponse.friends.items;
 
-            adjMatrix = new Dictionary<int, Vector<KeyValuePair<int, int>>>();
-            friendTree.Root.Friends.AddRange(myFriends);
-            adjMatrix.Add(friendTree.Root.Id, (new Vector<KeyValuePair<int, int>>()));
-            adjMatrix[friendTree.Root.Id].Add(friendTree.Root.Id, 0);
+            var root = friendTree.Root;
+            root.Friends.AddRange(myFriends);
 
             // Загрузка друзей друзей из соответствующих файлов
             foreach (var friend in myFriends)
             {
-                adjMatrix.Add(friend.Id, (new Vector<KeyValuePair<int, int>>()));
-                //adjMatrix[friend.Id].Add(friend.Id, 0);
-                //adjMatrix[friend.Id].Add(friend.parent.Id, 1);
-                friendTree.Root.Friends[friendTree.Root.Friends.IndexOf(friend)].parent = friendTree.Root;
-                if (!adjMatrix.ContainsKey(friend.Id))
-                {
-                    adjMatrix.Add(friend.Id, (new Dictionary<int, int>()));
-                    adjMatrix[friend.Id].Add(friend.Id, 0);
-                }
-                adjMatrix[friend.Id].Add(friend.parent.Id, 1);
+                var friends = friend.Friends;
+                root.Friends[root.Friends.IndexOf(friend)].parent = root;
+                var fileName = 
+                    $"Friends\\{friend.Id}_{friend.LastName}_\
+                    {friend.FirstName}_friends.json";
 
-                var fileName = $"Friends\\{friend.Id}_{friend.LastName}_{friend.FirstName}_friends.json";
                 if (File.Exists(fileName))
                 {
-                    var friendJson = File.ReadAllText(fileName);
-                    var friendFriendsResponse = JsonConvert.DeserializeObject<FriendsResponse>(friendJson);
-                    if (friendFriendsResponse.friends != null)
+                    var friendsResponse = 
+                        FRespDeserializer(File.ReadAllText(fileName));
+                    if (friendsResponse.friends != null)
                     {       
-                        var friendFriends = friendFriendsResponse.friends.items;
-                        friend.Friends.AddRange(friendFriends);
-                        foreach(var frienMyFriend in friend.Friends)
-                        {
-                            friend.Friends[friend.Friends.IndexOf(frienMyFriend)].parent = friend;
-
-                            if (!adjMatrix.ContainsKey(frienMyFriend.Id))
-                            {
-                                adjMatrix.Add(frienMyFriend.Id, (new Dictionary<int, int>()));
-                                adjMatrix[frienMyFriend.Id].Add(frienMyFriend.Id, 0);
-                            }
-                            adjMatrix[frienMyFriend.Id].Add(frienMyFriend.parent.Id, 1);
-                        }
+                        friends.AddRange(friendsResponse.friends.items);
+                        foreach(var frienMyFriend in friends)
+                            friends[friends.IndexOf(frienMyFriend)].parent = friend;
                     }
                 }
             }
-
             return friendTree;
+        }
+
+        public Matrix adjMatrix(FriendTree tree)
+        {
+            vat root = tree.Root;
+            ListListII friendsMyFriends = new ListListII();
+            ListII myFriends = fillInRelations(root.Friends);
+            friendsMyFriends.Add({root.Id, myFriends})
+            foreach (var friend in root.Friends)
+            {
+                var fRelations = {frirend.Id, fillInRelations(friend.Friends)};
+                friendsMyFriends.Add(fRelations);
+            }
+            var setFriends = getSetFriends(friendsMyFriends);
+            int dim = setFriends.Count;
+
+            Matrix res = createMatrix(setFriends, fRels);
+            return res;
+        }
+
+        private Matrix createMatrix(HashSet<int> friends, ListListII fRels)
+        {
+            Matrix res = new Matrix();
+            foreach (var fIdV in friends)
+            {
+                var row = new Dictionary<int, int>();
+                foreach (var fIdH in friends)
+                    row.Add({fIdH, 0});
+                res.Add({fIdV, row});
+            }
+            res = fillInMatrix(res, fRels);
+            return res;
+        }
+
+        private Matrix fillInMatrix(Matrix init, ListListII data)
+        {
+            var res = init
+            foreach (var row in data)
+                foreach (var fRel in row)
+                {
+                    res[row.Key][fRel.Key] = fRel.Value;
+                    res[fRel.Key][row.Key] = fRel.Value;
+                }
+            return res;
+        }
+
+        private ListII fillInRelations(List<Friend> friends)
+        {
+            var res = new ListII();
+            foreach (var friend in friends)
+                res.Add({friend.Id, 1});
+            return res;
+        }
+
+        private HashSet<int> getSetFriends(Matrix tmpMatrix)
+        {
+            var res = new HashSet<int>();
+            foreach (var it in tmpMatrix)
+                foreach (var fRel in it)
+                    res.Add(fRel.Key);
+            return res;
         }
 
         private int nodeCount { get; set; }
