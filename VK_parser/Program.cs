@@ -14,6 +14,7 @@ namespace VK_parser
         {
             FriendTreeParser friendTreeParser = new FriendTreeParser();
             FriendTree friendTree = friendTreeParser.ParseFriendTree();
+            var matrix = friendTreeParser.adjMatrix(friendTree);
             Console.WriteLine("-------");
             //await Authorize_VK.GetAuthCode();
         }

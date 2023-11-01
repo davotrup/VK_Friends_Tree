@@ -5,10 +5,11 @@ using System.IO;
 using System.Numerics;
 using Matrix = System.Collections.Generic.Dictionary<int, System.Collections.Generic.Dictionary<int, int>>;
 using ListII = System.Collections.Generic.List<System.Collections.Generic.KeyValuePair<int, int>>;
+
 namespace VK_parser
 {
-     // Объявляем алиас ListII
     using ListListII = List<KeyValuePair<int, ListII>>;
+
     public class FriendsEnum
     {
         [JsonProperty("count")]
@@ -52,7 +53,7 @@ namespace VK_parser
         {
             Root = new Friend
             {
-                Id = 00000, // Ваш ID
+                Id = 00000,
                 FirstName = "Даниил",
                 LastName = "Пуртов"
             };
@@ -77,7 +78,6 @@ namespace VK_parser
             var root = friendTree.Root;
             root.Friends.AddRange(myFriends);
 
-            // Загрузка друзей друзей из соответствующих файлов
             foreach (var friend in myFriends)
             {
                 var friends = friend.Friends;
@@ -114,35 +114,32 @@ namespace VK_parser
             var setFriends = getSetFriends(friendsMyFriends);
             int dim = setFriends.Count;
 
-            Matrix res = createMatrix(setFriends, friendsMyFriends);
+            Matrix res = createMatrix(ref setFriends, ref friendsMyFriends);
             return res;
         }
 
-        private Matrix createMatrix(HashSet<int> friends, ListListII fRels)
+        private Matrix createMatrix(ref HashSet<int> friends, ref ListListII fRels)
         {
-            // Создайте матрицу с нулевыми значениями
             Matrix res = new Matrix();
             foreach (var fIdV in friends)
             {
                 var row = new Dictionary<int, int>();
                 foreach (var fIdH in friends)
-                    row.Add(fIdH, 0); // Уберите фигурные скобки
+                    row.Add(fIdH, 0);
                 res.Add(fIdV, row);
             }
-            res = fillInMatrix(res, fRels);
+            fillInMatrix(ref res, ref fRels);
             return res;
         }
 
-        private Matrix fillInMatrix(Matrix init, ListListII data)
+        private void fillInMatrix(ref Matrix init, ref ListListII data)
         {
-            var res = init;
             foreach (var row in data)
                 foreach (var fRel in row.Value)
                 {
-                    res[row.Key][fRel.Key] = fRel.Value;
-                    res[fRel.Key][row.Key] = fRel.Value;
+                    init[row.Key][fRel.Key] = fRel.Value;
+                    init[fRel.Key][row.Key] = fRel.Value;
                 }
-            return res;
         }
 
         private ListII fillInRelations(List<Friend> friends)
@@ -161,8 +158,5 @@ namespace VK_parser
                     res.Add(fRel.Key);
             return res;
         }
-
-        //private int nodeCount { get; set; }
-        //private Dictionary<int, Vector<KeyValuePair<int, int>>> adjMatrix { get; set; }
     }
 }
