@@ -1,17 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Numerics;
-using System.Security.Cryptography;
-using System.Text;
-using System.Xml.Linq;
-using VK_Friends_Tree;
-using static VK_Friends_Tree.Controllers.GraphController;
-
+using Matrix = System.Collections.Generic.Dictionary<int, System.Collections.Generic.Dictionary<int, int>>;
+using ListII = System.Collections.Generic.List<System.Collections.Generic.KeyValuePair<int, int>>;
 namespace VK_parser
 {
+     // Объявляем алиас ListII
+    using ListListII = List<KeyValuePair<int, ListII>>;
     public class FriendsEnum
     {
         [JsonProperty("count")]
@@ -62,12 +59,6 @@ namespace VK_parser
         }
     }
 
-    using FRespDeserializer = JsonConvert.DeserializeObject<FriendsResponse>;
-    //                        Vector<{id, matrix_val}>
-    using ListII            = List<KeyValuePair<int, int>>;
-    using ListListII        = List<KeyValuePair<int, ListII>>;
-    using Matrix            = Dictionary<int, Dictionary<int, int>>;
-
     public class FriendTreeParser
     {
         public FriendTreeParser()
@@ -80,7 +71,7 @@ namespace VK_parser
             var friendTree = new FriendTree();
 
             var myFriendsJson = File.ReadAllText("my_friends.json");
-            var myFriendsResponse = FRespDeserializer(myFriendsJson);
+            var myFriendsResponse = JsonConvert.DeserializeObject<FriendsResponse>(myFriendsJson);
             var myFriends = myFriendsResponse.friends.items;
 
             var root = friendTree.Root;
@@ -92,13 +83,12 @@ namespace VK_parser
                 var friends = friend.Friends;
                 root.Friends[root.Friends.IndexOf(friend)].parent = root;
                 var fileName = 
-                    $"Friends\\{friend.Id}_{friend.LastName}_\
-                    {friend.FirstName}_friends.json";
+                    $"Friends\\{friend.Id}_{friend.LastName}_{friend.FirstName}_friends.json";
 
                 if (File.Exists(fileName))
                 {
-                    var friendsResponse = 
-                        FRespDeserializer(File.ReadAllText(fileName));
+                    var friendsResponse =
+                        JsonConvert.DeserializeObject<VK_parser.FriendsResponse>(File.ReadAllText(fileName));
                     if (friendsResponse.friends != null)
                     {       
                         friends.AddRange(friendsResponse.friends.items);
@@ -112,13 +102,13 @@ namespace VK_parser
 
         public Matrix adjMatrix(FriendTree tree)
         {
-            vat root = tree.Root;
+            var root = tree.Root;
             ListListII friendsMyFriends = new ListListII();
             ListII myFriends = fillInRelations(root.Friends);
-            friendsMyFriends.Add({root.Id, myFriends})
+            friendsMyFriends.Add(new KeyValuePair<int, ListII>(root.Id, myFriends));
             foreach (var friend in root.Friends)
             {
-                var fRelations = {frirend.Id, fillInRelations(friend.Friends)};
+                var fRelations = new KeyValuePair<int, ListII>(friend.Id, fillInRelations(friend.Friends));
                 friendsMyFriends.Add(fRelations);
             }
             var setFriends = getSetFriends(friendsMyFriends);
@@ -162,7 +152,7 @@ namespace VK_parser
             return res;
         }
 
-        private HashSet<int> getSetFriends(Matrix tmpMatrix)
+        private HashSet<int> getSetFriends(ListListII tmpMatrix)
         {
             var res = new HashSet<int>();
             foreach (var it in tmpMatrix)
