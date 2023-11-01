@@ -22,9 +22,7 @@ namespace VK_parser
 
             // Создайте URL для обмена кода авторизации на access_token
             string tokenExchangeUrl = 
-                $"https://oauth.vk.com/access_token?client_id={clientId}&\
-                client_secret={clientSecret}&redirect_uri={redirectUri}&\
-                code={authorizationCode}";
+                $"https://oauth.vk.com/access_token?client_id={clientId}&client_secret={clientSecret}&redirect_uri={redirectUri}&code={authorizationCode}";
 
             using (HttpClient httpClient = new HttpClient())
             {
@@ -32,9 +30,9 @@ namespace VK_parser
                 {
                     // Выполните POST-запрос для обмена кода 
                     // авторизации на access_token
-                    HttpResponseMessage response = 
+                    HttpResponseMessage response =
                         await httpClient.PostAsync(tokenExchangeUrl, null);
-                    string responseContent = 
+                    string responseContent =
                         await response.Content.ReadAsStringAsync();
 
                     // Обработайте ответ (responseContent) 
@@ -42,9 +40,11 @@ namespace VK_parser
                     Console.WriteLine(responseContent);
                 }
                 catch (Exception ex)
+                {
                     Console.WriteLine(
                         $"Ошибка при получении access_token: {ex.Message}"
                     );
+                }
             }
         }
 
@@ -57,9 +57,7 @@ namespace VK_parser
 
             // Создайте URL для авторизации пользователя
             string authUrl = 
-                $"https://oauth.vk.com/authorize?client_id={clientId}\
-                &redirect_uri={redirectUri}&scope={scope}\
-                &response_type=code&v=5.131";
+                $"https://oauth.vk.com/authorize?client_id={clientId}&redirect_uri={redirectUri}&scope={scope}&response_type=code&v=5.131";
 
             // Выведите URL для авторизации и попросите 
             // пользователя перейти по нему
@@ -69,19 +67,20 @@ namespace VK_parser
                 {
                     // Выполните POST-запрос для обмена кода 
                     // авторизации на access_token
-                    HttpResponseMessage response = 
+                    HttpResponseMessage response =
                         await httpClient.PostAsync(authUrl, null);
-                    string responseContent = 
+                    string responseContent =
                         await response.Content.ReadAsStringAsync();
                     Console.WriteLine(responseContent);
                     // Обработайте ответ (responseContent) 
                     // для извлечения access_token
                     //Console.WriteLine(responseContent);
                 }
-                catch (Exception ex)
+                catch (Exception ex) {
                     Console.WriteLine(
                         $"Ошибка при получении access_token: {ex.Message}"
                     );
+                } 
             }
         }
     }
