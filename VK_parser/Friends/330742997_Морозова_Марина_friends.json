@@ -1,0 +1,182 @@
+{
+  "response": {
+    "count": 25,
+    "items": [
+      {
+        "id": "7303162",
+        "nickname": "",
+        "first_name": "Анатолий",
+        "last_name": "Риэлтор",
+        "sex": "2"
+      },
+      {
+        "id": "113633538",
+        "nickname": "",
+        "first_name": "Petr",
+        "last_name": "Zharkikh",
+        "sex": "2"
+      },
+      {
+        "id": "124983275",
+        "nickname": "",
+        "first_name": "Даня",
+        "last_name": "Никитин",
+        "sex": "2"
+      },
+      {
+        "id": "140216171",
+        "nickname": "",
+        "first_name": "Даниил",
+        "last_name": "Пуртов",
+        "sex": "2"
+      },
+      {
+        "id": "159837512",
+        "nickname": null,
+        "first_name": "Кирилл",
+        "last_name": "Сусликов",
+        "sex": "2"
+      },
+      {
+        "id": "199026477",
+        "nickname": null,
+        "first_name": "Сергей",
+        "last_name": "Церковный",
+        "sex": "2"
+      },
+      {
+        "id": "220854007",
+        "nickname": "★☢☣ASPIRIN☣☢★YouHack[EH] Noname 維塔利克 ★ UFOLABS",
+        "first_name": "Сергей",
+        "last_name": "Яковлев",
+        "sex": "2"
+      },
+      {
+        "id": "225275392",
+        "nickname": "",
+        "first_name": "Катя",
+        "last_name": "Гавриляк",
+        "sex": "1"
+      },
+      {
+        "id": "248169954",
+        "nickname": "",
+        "first_name": "Дмитрий",
+        "last_name": "Волков",
+        "sex": "2"
+      },
+      {
+        "id": "290972862",
+        "nickname": "",
+        "first_name": "Валерия",
+        "last_name": "Шиманская",
+        "sex": "1"
+      },
+      {
+        "id": "293991762",
+        "nickname": "",
+        "first_name": "Алина",
+        "last_name": "Еремина",
+        "sex": "1"
+      },
+      {
+        "id": "312290022",
+        "nickname": null,
+        "first_name": "Dilyok",
+        "last_name": "Davletov",
+        "sex": "2"
+      },
+      {
+        "id": "313261557",
+        "nickname": null,
+        "first_name": "Александр",
+        "last_name": "Орлов",
+        "sex": "2"
+      },
+      {
+        "id": "327687377",
+        "nickname": "",
+        "first_name": "Артём",
+        "last_name": "Поддубный",
+        "sex": "2"
+      },
+      {
+        "id": "331747347",
+        "nickname": "",
+        "first_name": "Case-Cs-Go",
+        "last_name": "Ru",
+        "sex": "2"
+      },
+      {
+        "id": "333011352",
+        "nickname": "",
+        "first_name": "Павел",
+        "last_name": "Топский",
+        "sex": "2"
+      },
+      {
+        "id": "337045984",
+        "nickname": "",
+        "first_name": "Azaza",
+        "last_name": "Azaza",
+        "sex": "2"
+      },
+      {
+        "id": "342086587",
+        "nickname": "",
+        "first_name": "Ярик",
+        "last_name": "Свирский",
+        "sex": "2"
+      },
+      {
+        "id": "342168907",
+        "nickname": null,
+        "first_name": "Дмитрий",
+        "last_name": "Абрамовских",
+        "sex": "2"
+      },
+      {
+        "id": "343332992",
+        "nickname": null,
+        "first_name": "DELETED",
+        "last_name": "",
+        "sex": "2"
+      },
+      {
+        "id": "344132112",
+        "nickname": "",
+        "first_name": "Александр",
+        "last_name": "Долматов",
+        "sex": "2"
+      },
+      {
+        "id": "344393027",
+        "nickname": "",
+        "first_name": "Максим",
+        "last_name": "Макаров",
+        "sex": "2"
+      },
+      {
+        "id": "344695302",
+        "nickname": "",
+        "first_name": "Андрей",
+        "last_name": "Абрамович",
+        "sex": "2"
+      },
+      {
+        "id": "346992107",
+        "nickname": "",
+        "first_name": "Sad",
+        "last_name": "Sad",
+        "sex": "2"
+      },
+      {
+        "id": "365417730",
+        "nickname": null,
+        "first_name": "Максим",
+        "last_name": "Максимов",
+        "sex": "2"
+      }
+    ]
+  }
+}

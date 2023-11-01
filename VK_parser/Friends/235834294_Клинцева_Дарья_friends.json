@@ -1,0 +1,56 @@
+{
+  "response": {
+    "count": 7,
+    "items": [
+      {
+        "id": "46857573",
+        "nickname": "",
+        "first_name": "Георгий",
+        "last_name": "Черников",
+        "sex": "2"
+      },
+      {
+        "id": "140216171",
+        "nickname": "",
+        "first_name": "Даниил",
+        "last_name": "Пуртов",
+        "sex": "2"
+      },
+      {
+        "id": "155291915",
+        "nickname": null,
+        "first_name": "Лера",
+        "last_name": "Николаенко",
+        "sex": "1"
+      },
+      {
+        "id": "162849334",
+        "nickname": "",
+        "first_name": "Сергей",
+        "last_name": "Скоков",
+        "sex": "2"
+      },
+      {
+        "id": "186238299",
+        "nickname": "",
+        "first_name": "Liza",
+        "last_name": "Loseva",
+        "sex": "1"
+      },
+      {
+        "id": "238228676",
+        "nickname": "TakERisK ✔",
+        "first_name": "Михаил",
+        "last_name": "Ватлин",
+        "sex": "2"
+      },
+      {
+        "id": "247663310",
+        "nickname": "",
+        "first_name": "Клуб-Настольного-Тенниса",
+        "last_name": "Клуб-Настольного-Тенниса",
+        "sex": "2"
+      }
+    ]
+  }
+}

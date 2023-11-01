@@ -1,0 +1,98 @@
+{
+  "response": {
+    "count": 13,
+    "items": [
+      {
+        "id": "118329583",
+        "nickname": "",
+        "first_name": "Артём",
+        "last_name": "Айвазян",
+        "sex": "2"
+      },
+      {
+        "id": "140216171",
+        "nickname": "",
+        "first_name": "Даниил",
+        "last_name": "Пуртов",
+        "sex": "2"
+      },
+      {
+        "id": "141534808",
+        "nickname": "",
+        "first_name": "Витя",
+        "last_name": "Макаров",
+        "sex": "2"
+      },
+      {
+        "id": "145264373",
+        "nickname": "",
+        "first_name": "Виолетта",
+        "last_name": "Полякова",
+        "sex": "1"
+      },
+      {
+        "id": "169541744",
+        "nickname": "",
+        "first_name": "Александра",
+        "last_name": "Новикова",
+        "sex": "1"
+      },
+      {
+        "id": "173267210",
+        "nickname": "",
+        "first_name": "Оксана",
+        "last_name": "Гурьева",
+        "sex": "1"
+      },
+      {
+        "id": "181367954",
+        "nickname": null,
+        "first_name": "Дима",
+        "last_name": "Хадимов",
+        "sex": "2"
+      },
+      {
+        "id": "216774362",
+        "nickname": "",
+        "first_name": "Георгий",
+        "last_name": "Клевер",
+        "sex": "2"
+      },
+      {
+        "id": "243103265",
+        "nickname": null,
+        "first_name": "Артем",
+        "last_name": "Алтынов",
+        "sex": "2"
+      },
+      {
+        "id": "244321112",
+        "nickname": "",
+        "first_name": "Артем",
+        "last_name": "Беляев",
+        "sex": "2"
+      },
+      {
+        "id": "269156674",
+        "nickname": "",
+        "first_name": "Катя",
+        "last_name": "Гудкова",
+        "sex": "1"
+      },
+      {
+        "id": "344726506",
+        "nickname": "",
+        "first_name": "Вероника",
+        "last_name": "Щербакова",
+        "sex": "1"
+      },
+      {
+        "id": "407826900",
+        "nickname": "",
+        "first_name": "Элла",
+        "last_name": "Мухамадарова",
+        "sex": "1"
+      }
+    ]
+  }
+}

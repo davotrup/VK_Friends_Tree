@@ -11,6 +11,7 @@ namespace VK_Friends_Tree.Controllers
 {
     public class GraphController : Controller
     {
+        public int fCount { get; set; } = 100;
         public static string token { get; set; }
         public IActionResult Index()
         {
@@ -56,8 +57,11 @@ namespace VK_Friends_Tree.Controllers
         public async Task<IActionResult> GetFriendsMyFriends()
         {
             FriendsResponse result = JsonConvert.DeserializeObject<FriendsResponse>(System.IO.File.ReadAllText("my_friends.json"));
+            int counter = 0;
             foreach (var friend in result.friends.items)
             {
+                if (counter++ == fCount)
+                    break;
                 string friendId = friend.id; // Идентификатор друга
                 string friendFriendsUrl = $"https://api.vk.com/method/friends.get?access_token={token}&user_id={friendId}&order=hints&fields=nickname, sex, bdate&v=5.131";
                 using (HttpClient httpClient = new HttpClient())
