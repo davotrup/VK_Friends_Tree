@@ -158,5 +158,94 @@ namespace VK_parser
                     res.Add(fRel.Key);
             return res;
         }
+        
+        public Dictionary<int, List<List<int>>> GetShortestPaths(int node)
+        {
+            var queue = new List<(int, List<int>)> { (node, new List<int>()) };
+            HashSet<int> visited = new HashSet<int>();
+            var  paths = new Dictionary<int, List<List<int>>>();
+
+            while (queue.Count > 0)
+            {
+                (int current_node, List<int> current_path) = queue[0];
+                queue.RemoveAt(0);
+                visited.Add(current_node);
+
+                if (!paths.ContainsKey(current_node))
+                    paths[current_node] = new List<List<int>>();
+
+                if (!paths[current_node].Contains(current_path))
+                    paths[current_node].Add(current_path);
+
+                List<int> neighbors = new List<int>();
+                for (int i = 0; i < num_nodes; i++)
+                    if (adj_matrix[current_node, i] == 1)
+                        neighbors.Add(i);
+
+                foreach (int neighbor in neighbors)
+                    if (!visited.Contains(neighbor))
+                        queue.Add((neighbor, new List<int>(current_path) { neighbor }));
+            }
+
+            return paths;
+        }
+
+        public Dictionary<int, double> BetweennessCentrality()
+        {
+            var betweenness = new Dictionary<int, double>();
+            for (int node = 0; node < num_nodes; node++)
+            {
+                Dictionary<int, List<List<int>>> paths = GetShortestPaths(node);
+                int total_paths = paths.Count;
+
+                foreach (int source in paths.Keys)
+                    foreach (int target in paths.Keys)
+                        if (source != target)
+                            foreach (List<int> path in paths[source])
+                                if (path.Contains(target))
+                                {
+                                    if (!betweenness.ContainsKey(node))
+                                        betweenness[node] = 0;
+                                    betweenness[node] += 1.0 / total_paths;
+                                }
+            }
+
+            return betweenness;
+        }
+
+        public Dictionary<int, double> ClosenessCentrality()
+        {
+            var closeness = new Dictionary<int, double>();
+
+            for (int node = 0; node < num_nodes; node++)
+            {
+                int total_distance = 0;
+                Dictionary<int, List<List<int>>> paths = GetShortestPaths(node);
+
+                foreach (int target in paths.Keys)
+                    if (target != node)
+                        total_distance += paths[target][0].Count - 1;
+
+                closeness[node] = 
+                    total_distance > 0 ? (double)(paths.Count - 1) / total_distance : 0;
+            }
+
+            return closeness;
+        }
+
+        public double[] EigenvectorCentrality()
+        {
+            double[] eigenvalues;
+            double[,] eigenvectors;
+            double[] dominant_eigenvector = 
+                eigenvectors.GetColumn(np.argmax(eigenvalues));
+            double sum = dominant_eigenvector.Sum();
+            double[] centrality = new double[dominant_eigenvector.Length];
+
+            for (int i = 0; i < dominant_eigenvector.Length; i++)
+                centrality[i] = dominant_eigenvector[i] / sum;
+
+            return centrality;
+        }
     }
 }
