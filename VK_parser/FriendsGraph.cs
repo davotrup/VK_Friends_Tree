@@ -114,19 +114,20 @@ namespace VK_parser
             var setFriends = getSetFriends(friendsMyFriends);
             int dim = setFriends.Count;
 
-            Matrix res = createMatrix(setFriends, fRels);
+            Matrix res = createMatrix(setFriends, friendsMyFriends);
             return res;
         }
 
         private Matrix createMatrix(HashSet<int> friends, ListListII fRels)
         {
+            // Создайте матрицу с нулевыми значениями
             Matrix res = new Matrix();
             foreach (var fIdV in friends)
             {
                 var row = new Dictionary<int, int>();
                 foreach (var fIdH in friends)
-                    row.Add({fIdH, 0});
-                res.Add({fIdV, row});
+                    row.Add(fIdH, 0); // Уберите фигурные скобки
+                res.Add(fIdV, row);
             }
             res = fillInMatrix(res, fRels);
             return res;
@@ -134,9 +135,9 @@ namespace VK_parser
 
         private Matrix fillInMatrix(Matrix init, ListListII data)
         {
-            var res = init
+            var res = init;
             foreach (var row in data)
-                foreach (var fRel in row)
+                foreach (var fRel in row.Value)
                 {
                     res[row.Key][fRel.Key] = fRel.Value;
                     res[fRel.Key][row.Key] = fRel.Value;
@@ -148,7 +149,7 @@ namespace VK_parser
         {
             var res = new ListII();
             foreach (var friend in friends)
-                res.Add({friend.Id, 1});
+                res.Add(new KeyValuePair<int, int>(friend.Id, 1));
             return res;
         }
 
@@ -156,13 +157,12 @@ namespace VK_parser
         {
             var res = new HashSet<int>();
             foreach (var it in tmpMatrix)
-                foreach (var fRel in it)
+                foreach (var fRel in it.Value)
                     res.Add(fRel.Key);
             return res;
         }
 
-        private int nodeCount { get; set; }
-        private Dictionary<int, Vector<KeyValuePair<int, int>>> 
-        adjMatrix { get; set; }
+        //private int nodeCount { get; set; }
+        //private Dictionary<int, Vector<KeyValuePair<int, int>>> adjMatrix { get; set; }
     }
 }
