@@ -10,14 +10,15 @@ namespace VK_parser
 {
     internal class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             FriendTreeParser friendTreeParser = new FriendTreeParser();
-            FriendTree friendTree = friendTreeParser.ParseFriendTree();
-            var matrix = friendTreeParser.adjMatrix(friendTree);
-            var bc = friendTreeParser.BetweennessCentrality(ref matrix);
-            var cc = friendTreeParser.ClosenessCentrality(ref matrix);
-            var pi = friendTreeParser.PowerIteration(ref matrix);
+            //FriendTree friendTree = friendTreeParser.ParseFriendTree();
+            await friendTreeParser.TreeToNeoAsync();
+            //var matrix = friendTreeParser.adjMatrix(friendTree);
+            //var bc = friendTreeParser.BetweennessCentrality(ref matrix);
+            //var cc = friendTreeParser.ClosenessCentrality(ref matrix);
+            //var pi = friendTreeParser.PowerIteration(ref matrix);
             Console.WriteLine("-------");
             //await Authorize_VK.GetAuthCode();
         }

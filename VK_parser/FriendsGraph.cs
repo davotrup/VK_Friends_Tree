@@ -6,6 +6,7 @@ using System.Numerics;
 using Matrix = System.Collections.Generic.Dictionary<int, System.Collections.Generic.Dictionary<int, int>>;
 using ListII = System.Collections.Generic.List<System.Collections.Generic.KeyValuePair<int, int>>;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace VK_parser
 {
@@ -81,7 +82,7 @@ namespace VK_parser
 
             var root = friendTree.Root;
             root.Friends.AddRange(myFriends.Take(fCount));
-            int counter = 0;
+
             foreach (var friend in myFriends)
             {
                 /*if (counter++ == fCount)
@@ -97,7 +98,6 @@ namespace VK_parser
                         JsonConvert.DeserializeObject<FriendsResponse>(File.ReadAllText(fileName));
                     if (friendsResponse.friends != null)
                     {
-                        int counter2 = 0;
                         friends.AddRange(friendsResponse.friends.items.Take(fCount));
                         foreach (var frienMyFriend in friends)
                         {
@@ -109,6 +109,41 @@ namespace VK_parser
                 }
             }
             return friendTree;
+        }
+        public async Task TreeToNeoAsync()
+        {
+            var friendTree = new FriendTree();
+            NeoAPI neoAPI = new NeoAPI();
+
+            var myFriendsJson = File.ReadAllText("C:\\Users\\ВТБ\\source\\repos\\VK_Friends_Tree\\VK_parser\\my_friends.json");
+            var myFriendsResponse = JsonConvert.DeserializeObject<FriendsResponse>(myFriendsJson);
+            var myFriends = myFriendsResponse.friends.items.Take(fCount);
+
+            var root = friendTree.Root;
+            await neoAPI.AddNode(root.Id, root.FirstName, root.LastName, -1);
+            root.Friends.AddRange(myFriends);
+
+            foreach (var friend in myFriends)
+            {
+                var friends = friend.Friends;
+                await neoAPI.AddNode(friend.Id, friend.FirstName, friend.LastName, root.Id);
+                var fileName =
+                    $"C:\\Users\\ВТБ\\source\\repos\\VK_Friends_Tree\\VK_parser\\Friends\\{friend.Id}_{friend.LastName}_{friend.FirstName}_friends.json";
+
+                if (File.Exists(fileName))
+                {
+                    var friendsResponse =
+                        JsonConvert.DeserializeObject<FriendsResponse>(File.ReadAllText(fileName));
+                    if (friendsResponse.friends != null)
+                    {
+                        friends.AddRange(friendsResponse.friends.items.Take(fCount));
+                        foreach (var frienMyFriend in friends)
+                        {
+                            await neoAPI.AddNode(frienMyFriend.Id, frienMyFriend.FirstName, frienMyFriend.LastName, friend.Id);
+                        }
+                    }
+                }
+            }
         }
 
         public Matrix adjMatrix(FriendTree tree)
